@@ -1,0 +1,90 @@
+<!-- Sierra Morgan -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Mission Control, We Have Blastoff!</title>
+    <script>
+    function StartTheCountdown() 
+    {
+        //purpose is to start the countdown and countrol it
+        //declaration of variables
+        var counter = 10;
+        //controls the countdown causing the counter to go from 10 to 0
+        var countdown = setInterval(function(){
+            counter--;
+            //prevents the counter from going below 0
+            if(counter <= 0){
+                clearInterval(countdown);
+                document.getElementById("CountdownDisplay").innerHTML = ""
+                document.getElementById("message").innerHTML = "We have blastoff!"
+            }
+            else if (counter == 5) {
+                document.getElementById("CountdownDisplay").innerHTML = counter;
+                document.getElementById("message").innerHTML = "Warning less than half way to launch. You have reached the point of no return";
+                document.getElementById("stop").disabled = true;
+            }
+            else {
+                document.getElementById("CountdownDisplay").innerHTML = counter;
+            }
+        }, 1000);
+    }
+    
+    function pressStart(){
+        document.getElementById("start").disabled = true;
+        document.getElementById("stop").disabled = false;
+    }
+
+    function pressStop(){
+        document.getElementById("start").disabled = false;
+        document.getElementById("stop").disabled = true;
+    }
+    </script>
+     <!--CSS to add a background image-->
+     <style>
+        body
+        {
+            background-image: url("Space.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body style="background-color: darkslategray;">
+    <!--Heading of webpage-->
+    <h1 style="font-family: Arial, Helvetica, sans-serif; color: whitesmoke; text-decoration: underline;">UAT Mission Control</h1>
+    <!--adds image showing mission control-->
+    <img src="MissionControl.jpg" alt="Mission Control" width="500" height="250">
+    <!-- Program descriptor -->
+    <p style="color: whitesmoke;">Today we are intiating the blastoff sequence to send a ship to space.</p>
+    <!--puts a horizontal dividing line to help divide the webpage into sections-->
+    <hr>
+    <!--heading indicating countdown location-->
+    <h2 style="font-family:Arial, Helvetica, sans-serif; color:rgb(60, 148, 60)">Countdown</h2>
+    <!-- Button to start the countdown -->
+    <button id="start" type="button" onclick="StartTheCountdown(); pressStart()">Start Countdown</button>
+    <button id="stop" type="button" onclick="pressStop()">Stop Countdown</button>
+    <!-- Countdown text -->
+    <p id="CountdownDisplay" style="font-size: x-large; color: whitesmoke;">10</p>
+    <hr>
+    <p id="message" style="color: whitesmoke; font-size: larger;"></p>
+    <hr>
+    <!--adds a player for background noise to play from-->
+    <embed src="alexproductionscinematicmusic.mp3"> 
+    <hr>
+    <!--footer to webpage-->
+    <footer>
+        <P style="color: whitesmoke; font-size: small;">UAT Space Mission Imagined</P>
+        <P style="color: whitesmoke; font-size: x-small;">Author: Sierra morgan</P>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+
+<!--Epic Adventure Cinematic Music | MOVIE by Alex-Productions | https://www.youtube.com/channel/UCx0_M61F81Nfb-BRXE-SeVA
+Music promoted by https://www.chosic.com/free-music/all/
+Creative Commons CC BY 3.0
+https://creativecommons.org/licenses/by/3.0/-->
